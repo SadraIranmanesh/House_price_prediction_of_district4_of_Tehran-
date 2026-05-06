@@ -1,162 +1,205 @@
-\section{House Price Prediction with PyTorch}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>House Price Prediction with PyTorch</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #222;
+      background: #fff;
+    }
+    h1, h2, h3 {
+      color: #111;
+    }
+    code, pre {
+      background: #f4f4f4;
+      border-radius: 6px;
+      font-family: Consolas, monospace;
+    }
+    code {
+      padding: 2px 6px;
+    }
+    pre {
+      padding: 14px;
+      overflow-x: auto;
+    }
+    ul, ol {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
 
-A complete machine learning pipeline for \textbf{house price prediction} using \textbf{PyTorch}, including:
+  <h1>House Price Prediction with PyTorch</h1>
 
-\begin{itemize}
-    \item data loading
-    \item missing value handling
-    \item outlier removal
-    \item exploratory data analysis (EDA)
-    \item feature scaling
-    \item neural network regression
-    \item early stopping
-    \item model evaluation
-    \item residual analysis
-    \item visualization
-\end{itemize}
+  <p>
+    A complete machine learning pipeline for <strong>house price prediction</strong> using <strong>PyTorch</strong>, including:
+  </p>
 
-\section{Overview}
+  <ul>
+    <li>data loading</li>
+    <li>missing value handling</li>
+    <li>outlier removal</li>
+    <li>exploratory data analysis (EDA)</li>
+    <li>feature scaling</li>
+    <li>neural network regression</li>
+    <li>early stopping</li>
+    <li>model evaluation</li>
+    <li>residual analysis</li>
+    <li>visualization</li>
+  </ul>
 
-This project predicts \textbf{house prices} using a fully connected neural network built with \textbf{PyTorch}.
+  <h2>Overview</h2>
 
-The workflow covers the full ML pipeline:
+  <p>
+    This project predicts <strong>house prices</strong> using a fully connected neural network built with <strong>PyTorch</strong>.
+  </p>
 
-\begin{enumerate}
-    \item Load and inspect dataset
-    \item Clean data by removing missing-value columns
-    \item Remove price outliers using the \textbf{IQR method}
-    \item Perform exploratory data analysis
-    \item Split data into train / validation / test sets
-    \item Scale features and target values using \textbf{MinMaxScaler}
-    \item Train a neural network regressor
-    \item Apply \textbf{early stopping} to prevent overfitting
-    \item Evaluate the model using:
-    \begin{itemize}
-        \item \textbf{R\textsuperscript{2} Score}
-        \item \textbf{MAE}
-        \item \textbf{RMSE}
-    \end{itemize}
-    \item Visualize predictions and residuals
-\end{enumerate}
+  <p>The workflow covers the full ML pipeline:</p>
 
-\section{Tech Stack}
+  <ol>
+    <li>Load and inspect dataset</li>
+    <li>Clean data by removing missing-value columns</li>
+    <li>Remove price outliers using the <strong>IQR method</strong></li>
+    <li>Perform exploratory data analysis</li>
+    <li>Split data into train / validation / test sets</li>
+    <li>Scale features and target values using <strong>MinMaxScaler</strong></li>
+    <li>Train a neural network regressor</li>
+    <li>Apply <strong>early stopping</strong> to prevent overfitting</li>
+    <li>
+      Evaluate the model using:
+      <ul>
+        <li><strong>R² Score</strong></li>
+        <li><strong>MAE</strong></li>
+        <li><strong>RMSE</strong></li>
+      </ul>
+    </li>
+    <li>Visualize predictions and residuals</li>
+  </ol>
 
-\begin{itemize}
-    \item \textbf{Python}
-    \item \textbf{Pandas}
-    \item \textbf{NumPy}
-    \item \textbf{Matplotlib}
-    \item \textbf{Seaborn}
-    \item \textbf{Scikit-learn}
-    \item \textbf{PyTorch}
-\end{itemize}
+  <h2>Tech Stack</h2>
 
-\section{Project Structure}
+  <ul>
+    <li><strong>Python</strong></li>
+    <li><strong>Pandas</strong></li>
+    <li><strong>NumPy</strong></li>
+    <li><strong>Matplotlib</strong></li>
+    <li><strong>Seaborn</strong></li>
+    <li><strong>Scikit-learn</strong></li>
+    <li><strong>PyTorch</strong></li>
+  </ul>
 
-\begin{verbatim}
-├── README.md
+  <h2>Project Structure</h2>
+
+  <pre><code>├── README.md
 ├── best_model.pth
 ├── main.py
-└── HomeDataset_after_preprocess_04_06.csv
-\end{verbatim}
+└── HomeDataset_after_preprocess_04_06.csv</code></pre>
 
-You can rename \texttt{main.py} depending on your actual file name.
+  <p>You can rename <code>main.py</code> depending on your actual file name.</p>
 
-\section{Features}
+  <h2>Features</h2>
 
-\begin{itemize}
-    \item End-to-end regression pipeline
-    \item Outlier removal with IQR
-    \item Correlation analysis and feature importance
-    \item Neural network regression with PyTorch
-    \item GPU support (\texttt{cuda} if available)
-    \item Early stopping with best model checkpoint saving
-    \item Training/validation loss tracking
-    \item Prediction vs actual visualization
-    \item Residual diagnostics
-\end{itemize}
+  <ul>
+    <li>End-to-end regression pipeline</li>
+    <li>Outlier removal with IQR</li>
+    <li>Correlation analysis and feature importance</li>
+    <li>Neural network regression with PyTorch</li>
+    <li>GPU support (<code>cuda</code> if available)</li>
+    <li>Early stopping with best model checkpoint saving</li>
+    <li>Training/validation loss tracking</li>
+    <li>Prediction vs actual visualization</li>
+    <li>Residual diagnostics</li>
+  </ul>
 
-\section{Dataset}
+  <h2>Dataset</h2>
 
-The model expects a CSV dataset containing housing features and a target column named:
+  <p>
+    The model expects a CSV dataset containing housing features and a target column named:
+  </p>
 
-\begin{verbatim}
-price
-\end{verbatim}
+  <pre><code>price</code></pre>
 
-Example dataset loading path in the code:
+  <p>Example dataset loading path in the code:</p>
 
-\begin{verbatim}
-df = pd.read_csv('HomeDataset_after_preprocess_04_06.csv')
-\end{verbatim}
+  <pre><code>df = pd.read_csv('HomeDataset_after_preprocess_04_06.csv')</code></pre>
 
-\subsection*{Important}
+  <h3>Important</h3>
 
-Make sure the dataset file is placed in the project root directory, or update the path if needed.
+  <p>
+    Make sure the dataset file is placed in the project root directory, or update the path if needed.
+  </p>
 
-\section{Data Preprocessing}
+  <h2>Data Preprocessing</h2>
 
-\subsection{1. Missing Values}
+  <h3>1. Missing Values</h3>
 
-Columns containing missing values are removed:
+  <p>Columns containing missing values are removed:</p>
 
-\begin{verbatim}
-df = df.dropna(axis=1)
-\end{verbatim}
+  <pre><code>df = df.dropna(axis=1)</code></pre>
 
-\subsection{2. Outlier Removal}
+  <h3>2. Outlier Removal</h3>
 
-Outliers are removed from the \texttt{price} column using the \textbf{Interquartile Range (IQR)} method:
+  <p>
+    Outliers are removed from the <code>price</code> column using the <strong>Interquartile Range (IQR)</strong> method:
+  </p>
 
-\begin{itemize}
-    \item Lower bound = $Q1 - 1.5 \times IQR$
-    \item Upper bound = $Q3 + 1.5 \times IQR$
-\end{itemize}
+  <ul>
+    <li>Lower bound = Q1 - 1.5 × IQR</li>
+    <li>Upper bound = Q3 + 1.5 × IQR</li>
+  </ul>
 
-This helps reduce the effect of extreme house prices on model performance.
+  <p>
+    This helps reduce the effect of extreme house prices on model performance.
+  </p>
 
-\subsection{3. Feature / Target Split}
+  <h3>3. Feature / Target Split</h3>
 
-\begin{itemize}
-    \item \textbf{Features:} all columns except \texttt{price}
-    \item \textbf{Target:} \texttt{price}
-\end{itemize}
+  <ul>
+    <li><strong>Features:</strong> all columns except <code>price</code></li>
+    <li><strong>Target:</strong> <code>price</code></li>
+  </ul>
 
-\subsection{4. Train / Validation / Test Split}
+  <h3>4. Train / Validation / Test Split</h3>
 
-\begin{itemize}
-    \item \textbf{70\%} Training
-    \item \textbf{15\%} Validation
-    \item \textbf{15\%} Test
-\end{itemize}
+  <ul>
+    <li><strong>70%</strong> Training</li>
+    <li><strong>15%</strong> Validation</li>
+    <li><strong>15%</strong> Test</li>
+  </ul>
 
-\subsection{5. Scaling}
+  <h3>5. Scaling</h3>
 
-Both features and target are normalized using \textbf{MinMaxScaler}.
+  <p>Both features and target are normalized using <strong>MinMaxScaler</strong>.</p>
 
-\section{Exploratory Data Analysis}
+  <h2>Exploratory Data Analysis</h2>
 
-The project includes several visualizations for understanding the dataset:
+  <p>The project includes several visualizations for understanding the dataset:</p>
 
-\begin{itemize}
-    \item correlation heatmap
-    \item price distribution histogram
-    \item price boxplot
-    \item feature correlation with price
-    \item training vs validation loss
-    \item actual vs predicted prices
-    \item residual scatter plot
-    \item residual distribution
-\end{itemize}
+  <ul>
+    <li>correlation heatmap</li>
+    <li>price distribution histogram</li>
+    <li>price boxplot</li>
+    <li>feature correlation with price</li>
+    <li>training vs validation loss</li>
+    <li>actual vs predicted prices</li>
+    <li>residual scatter plot</li>
+    <li>residual distribution</li>
+  </ul>
 
-\section{Model Architecture}
+  <h2>Model Architecture</h2>
 
-The model is a feed-forward neural network implemented in PyTorch.
+  <p>The model is a feed-forward neural network implemented in PyTorch.</p>
 
-\subsection*{Architecture}
+  <h3>Architecture</h3>
 
-\begin{verbatim}
-Input Layer
+  <pre><code>Input Layer
    ↓
 Linear(input_size → 64)
 ReLU
@@ -168,100 +211,88 @@ ReLU
 Linear(16 → 8)
 ReLU
    ↓
-Linear(8 → 1)
-\end{verbatim}
+Linear(8 → 1)</code></pre>
 
-\subsection*{Loss Function}
+  <h3>Loss Function</h3>
 
-\begin{itemize}
-    \item \textbf{Mean Squared Error (MSE)}
-\end{itemize}
+  <ul>
+    <li><strong>Mean Squared Error (MSE)</strong></li>
+  </ul>
 
-\subsection*{Optimizer}
+  <h3>Optimizer</h3>
 
-\begin{itemize}
-    \item \textbf{Adam}
-    \item Learning rate: \texttt{0.01}
-    \item Weight decay: \texttt{1e-4}
-\end{itemize}
+  <ul>
+    <li><strong>Adam</strong></li>
+    <li>Learning rate: <code>0.01</code></li>
+    <li>Weight decay: <code>1e-4</code></li>
+  </ul>
 
-\section{Training Configuration}
+  <h2>Training Configuration</h2>
 
-\begin{itemize}
-    \item \textbf{Epochs:} 10000
-    \item \textbf{Batch size:} 16
-    \item \textbf{Early stopping patience:} 500
-    \item \textbf{Random seed:} 42
-\end{itemize}
+  <ul>
+    <li><strong>Epochs:</strong> 10000</li>
+    <li><strong>Batch size:</strong> 16</li>
+    <li><strong>Early stopping patience:</strong> 500</li>
+    <li><strong>Random seed:</strong> 42</li>
+  </ul>
 
-The best validation model is saved automatically as:
+  <p>The best validation model is saved automatically as:</p>
 
-\begin{verbatim}
-best_model.pth
-\end{verbatim}
+  <pre><code>best_model.pth</code></pre>
 
-\section{Evaluation Metrics}
+  <h2>Evaluation Metrics</h2>
 
-After training, the model is evaluated on the test set using:
+  <p>After training, the model is evaluated on the test set using:</p>
 
-\begin{itemize}
-    \item \textbf{R\textsuperscript{2} Score}
-    \item \textbf{Mean Absolute Error (MAE)}
-    \item \textbf{Root Mean Squared Error (RMSE)}
-\end{itemize}
+  <ul>
+    <li><strong>R² Score</strong></li>
+    <li><strong>Mean Absolute Error (MAE)</strong></li>
+    <li><strong>Root Mean Squared Error (RMSE)</strong></li>
+  </ul>
 
-Example:
+  <p>Example:</p>
 
-\begin{verbatim}
-r2 = r2_score(y_true, y_pred)
+  <pre><code>r2 = r2_score(y_true, y_pred)
 mae = mean_absolute_error(y_true, y_pred)
-rmse = np.sqrt(mean_squared_error(y_true, y_pred))
-\end{verbatim}
+rmse = np.sqrt(mean_squared_error(y_true, y_pred))</code></pre>
 
-\section{Installation}
+  <h2>Installation</h2>
 
-Clone the repository:
+  <p>Clone the repository:</p>
 
-\begin{verbatim}
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-\end{verbatim}
+  <pre><code>git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name</code></pre>
 
-Install dependencies:
+  <p>Install dependencies:</p>
 
-\begin{verbatim}
-pip install pandas numpy matplotlib seaborn scikit-learn torch
-\end{verbatim}
+  <pre><code>pip install pandas numpy matplotlib seaborn scikit-learn torch</code></pre>
 
-\section{Usage}
+  <h2>Usage</h2>
 
-Run the training script:
+  <p>Run the training script:</p>
 
-\begin{verbatim}
-python main.py
-\end{verbatim}
+  <pre><code>python main.py</code></pre>
 
-If you are using a notebook, simply run the cells step by step.
+  <p>If you are using a notebook, simply run the cells step by step.</p>
 
-\section{Output}
+  <h2>Output</h2>
 
-During execution, the project will:
+  <p>During execution, the project will:</p>
 
-\begin{itemize}
-    \item print dataset information
-    \item show missing values report
-    \item remove outliers
-    \item display EDA plots
-    \item train the neural network
-    \item save the best model
-    \item print final evaluation metrics
-    \item generate prediction and residual plots
-\end{itemize}
+  <ul>
+    <li>print dataset information</li>
+    <li>show missing values report</li>
+    <li>remove outliers</li>
+    <li>display EDA plots</li>
+    <li>train the neural network</li>
+    <li>save the best model</li>
+    <li>print final evaluation metrics</li>
+    <li>generate prediction and residual plots</li>
+  </ul>
 
-\section{Example Workflow}
+  <h2>Example Workflow</h2>
 
-\begin{verbatim}
-# Load data
+  <pre><code># Load data
 df = pd.read_csv('HomeDataset_after_preprocess_04_06.csv')
 
 # Preprocess
@@ -269,67 +300,75 @@ df = df.dropna(axis=1)
 
 # Train model
 # Evaluate model
-# Visualize results
-\end{verbatim}
+# Visualize results</code></pre>
 
-\section{Model Strengths}
+  <h2>Model Strengths</h2>
 
-\begin{itemize}
-    \item Simple and effective deep learning baseline for tabular regression
-    \item Includes validation monitoring and early stopping
-    \item Good structure for further experimentation and improvement
-    \item Easy to adapt to other regression datasets
-\end{itemize}
+  <ul>
+    <li>Simple and effective deep learning baseline for tabular regression</li>
+    <li>Includes validation monitoring and early stopping</li>
+    <li>Good structure for further experimentation and improvement</li>
+    <li>Easy to adapt to other regression datasets</li>
+  </ul>
 
-\section{Possible Improvements}
+  <h2>Possible Improvements</h2>
 
-Here are some ideas to improve the project further:
+  <p>Here are some ideas to improve the project further:</p>
 
-\begin{itemize}
-    \item use \textbf{DataLoader} for cleaner batching
-    \item add \textbf{model checkpointing} with full training state
-    \item log metrics with \textbf{TensorBoard}
-    \item experiment with deeper/wider architectures
-    \item apply \textbf{feature selection}
-    \item compare performance with:
-    \begin{itemize}
-        \item Linear Regression
-        \item Random Forest Regressor
-        \item XGBoost
-        \item CatBoost
-    \end{itemize}
-    \item use \textbf{k-fold cross-validation}
-    \item save scalers for inference deployment
-    \item build a small \textbf{Flask/FastAPI} app for prediction
-\end{itemize}
+  <ul>
+    <li>use <strong>DataLoader</strong> for cleaner batching</li>
+    <li>add <strong>model checkpointing</strong> with full training state</li>
+    <li>log metrics with <strong>TensorBoard</strong></li>
+    <li>experiment with deeper/wider architectures</li>
+    <li>apply <strong>feature selection</strong></li>
+    <li>
+      compare performance with:
+      <ul>
+        <li>Linear Regression</li>
+        <li>Random Forest Regressor</li>
+        <li>XGBoost</li>
+        <li>CatBoost</li>
+      </ul>
+    </li>
+    <li>use <strong>k-fold cross-validation</strong></li>
+    <li>save scalers for inference deployment</li>
+    <li>build a small <strong>Flask/FastAPI</strong> app for prediction</li>
+  </ul>
 
-\section{Notes}
+  <h2>Notes</h2>
 
-\begin{itemize}
-    \item The current code drops all columns containing missing values. Depending on the dataset, imputing missing values may preserve more useful information.
-    \item Outlier removal is only applied to the target column (\texttt{price}). You may also consider handling feature-level outliers.
-    \item Since this is tabular data, traditional ML models may also perform competitively and are worth comparing.
-\end{itemize}
+  <ul>
+    <li>The current code drops all columns containing missing values. Depending on the dataset, imputing missing values may preserve more useful information.</li>
+    <li>Outlier removal is only applied to the target column (<code>price</code>). You may also consider handling feature-level outliers.</li>
+    <li>Since this is tabular data, traditional ML models may also perform competitively and are worth comparing.</li>
+  </ul>
 
-\section{Requirements}
+  <h2>Requirements</h2>
 
-You can also create a \texttt{requirements.txt} file like this:
+  <p>You can also create a <code>requirements.txt</code> file like this:</p>
 
-\begin{verbatim}
-pandas
+  <pre><code>pandas
 numpy
 matplotlib
 seaborn
 scikit-learn
-torch
-\end{verbatim}
+torch</code></pre>
 
-\section{License}
+  <h2>License</h2>
 
-This project is open-source and available under the \textbf{MIT License}.
+  <p>
+    This project is open-source and available under the <strong>MIT License</strong>.
+  </p>
 
-\section{Author}
+  <h2>Author</h2>
 
-Developed by \textbf{Sadra}
+  <p>
+    Developed by <strong>Sadra</strong>
+  </p>
 
-If you found this project useful, feel free to star the repository.
+  <p>
+    If you found this project useful, feel free to star the repository.
+  </p>
+
+</body>
+</html>
